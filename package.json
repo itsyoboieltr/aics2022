@@ -1,10 +1,11 @@
 {
   "name": "aics2022",
   "version": "1.0.0",
+  "homepage": "https://itsyoboieltr.github.io/aics2022/",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --host --port 3000"
   },
   "dependencies": {
     "@emotion/react": "11.9.0",
