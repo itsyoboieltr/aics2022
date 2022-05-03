@@ -15,22 +15,20 @@ import {
   CardActionArea,
   CardMedia,
   CardContent,
+  Box,
 } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import AvTimerIcon from '@mui/icons-material/AvTimer';
-import logo from './assets/logo.svg';
 import main from './assets/aics2022.webp';
-import dog1 from './assets/dog1.jpeg';
-import dog2 from './assets/dog2.jpeg';
-import dog3 from './assets/dog3.jpeg';
-import dog4 from './assets/dog4.jpeg';
-import dog5 from './assets/dog5.jpeg';
-import dog6 from './assets/dog6.jpeg';
-import dog7 from './assets/dog7.jpeg';
-import dog8 from './assets/dog8.jpeg';
-import dog9 from './assets/dog9.jpeg';
-import dog10 from './assets/dog10.jpeg';
+import mehmet from './assets/mehmet.jpg';
+import nina from './assets/nina.png';
+import norbert from './assets/norbert.png';
+import jakub from './assets/jakub.jpg';
+import dimitra from './assets/dimitra.jpg';
+import alvaro from './assets/alvaro.jpg';
+import ebin from './assets/ebin.jpg';
+import chiara from './assets/chiara.jpg';
 
 const { palette } = createTheme();
 const { augmentColor } = palette;
@@ -49,41 +47,57 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <Box sx={{ position: 'relative', mb: -2, textAlign: 'center' }}>
+        <img
+          src={main}
+          width={'100%'}
+          height={300}
+          style={{
+            filter:
+              'saturate(80%) hue-rotate(40deg) brightness(60%) contrast(80%)',
+            objectFit: 'cover',
+            zIndex: -1,
+          }}
+        />
+        <Typography
+          variant={'h3'}
+          sx={{
+            width: '95%',
+            fontSize: 'clamp(2.5rem, 3vw, 3rem)',
+            textTransform: 'lowercase',
+            fontVariant: 'small-caps',
+            fontWeight: 'bolder',
+            position: 'absolute',
+            top: '33%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backdropFilter: 'blur(2px) saturate(60%)',
+          }}
+          children={'AI meets CS'}
+        />
+        <Typography
+          variant={'h3'}
+          sx={{
+            width: '95%',
+            fontSize: 'clamp(2rem, 3vw, 3rem)',
+            textTransform: 'lowercase',
+            fontVariant: 'small-caps',
+            fontWeight: 'bolder',
+            position: 'absolute',
+            top: '55%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backdropFilter: 'blur(2px) saturate(60%)',
+          }}
+          children={'Check out what our students are working on'}
+        />
+      </Box>
       <Grid
         container
         spacing={1}
         justifyContent={'center'}
         alignItems={'center'}
         sx={{ textAlign: 'center', px: 1 }}>
-        <Grid item xs={12} sx={{ position: 'relative', mb: -2 }}>
-          <img
-            src={main}
-            width={'100%'}
-            height={300}
-            style={{
-              filter:
-                'saturate(80%) hue-rotate(40deg) brightness(60%) contrast(80%)',
-              objectFit: 'cover',
-              zIndex: -1,
-            }}
-          />
-          <Typography
-            variant={'h3'}
-            sx={{
-              width: '95%',
-              fontSize: 'clamp(2.5rem, 3vw, 3rem)',
-              textTransform: 'lowercase',
-              fontVariant: 'small-caps',
-              fontWeight: 'bolder',
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              backdropFilter: 'blur(2px) saturate(60%)',
-            }}
-            children={'AI meets CS: Check out what our students are working on'}
-          />
-        </Grid>
         <Grid item xs={12} md={8}>
           <Typography
             children={'About'}
@@ -113,7 +127,7 @@ export default function App() {
             color={'primary'}
           />
           <Typography children={'University of Klagenfurt'} sx={{ mt: 1 }} />
-          <Typography children={'2022.06.17, 15:00-18:00'} sx={{ mb: 3 }} />
+          <Typography children={'2022.06.17, 17:00-21:00'} sx={{ mb: 3 }} />
           <Stepper
             alternativeLabel
             activeStep={2}
@@ -127,7 +141,7 @@ export default function App() {
                   sx={{ mt: -1, mb: -2.5 }}
                 />
                 <br />
-                <Typography children={'15:00'} variant={'caption'} />
+                <Typography children={'17:00'} variant={'caption'} />
               </StepLabel>
             </Step>
             <Step key={'Presentations'}>
@@ -138,7 +152,7 @@ export default function App() {
                   sx={{ mt: -1, mb: -2.5 }}
                 />
                 <br />
-                <Typography children={'16:00'} variant={'caption'} />
+                <Typography children={'18:00'} variant={'caption'} />
               </StepLabel>
             </Step>
             <Step key={'Event ends'}>
@@ -149,7 +163,7 @@ export default function App() {
                   sx={{ mt: -1, mb: -2.5 }}
                 />
                 <br />
-                <Typography children={'18:00'} variant={'caption'} />
+                <Typography children={'21:00'} variant={'caption'} />
               </StepLabel>
             </Step>
           </Stepper>
@@ -171,240 +185,192 @@ export default function App() {
             spacing={1}
             justifyContent={'center'}
             alignItems={'center'}>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog1}
+                    image={mehmet}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 1'}
+                      children={'Mehmet Daglioglu'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Super Resolution GANs'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog2}
+                    image={nina}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 2'}
+                      children={'Nina Suette'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Nina project title'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog3}
+                    image={norbert}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 3'}
+                      children={'Norbert Elter'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Digit Recognition'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog4}
+                    image={jakub}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 4'}
+                      children={'Jakub Ciborowski'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Network IDS for IoT'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog5}
+                    image={dimitra}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 5'}
+                      children={'Dimitra Brountsou'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'RPA Bot Development'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog6}
+                    image={alvaro}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 6'}
+                      children={'Alvaro Sanchez'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Deception Detection'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog7}
+                    image={ebin}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 7'}
+                      children={'Ebin Sebastian'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Ebin project title'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
                 </CardActionArea>
               </Card>
             </Grid>
-            <Grid item xs={6} md={4}>
+            <Grid item xs={6} md={3}>
               <Card>
-                <CardActionArea disableRipple>
+                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
                   <CardMedia
                     component={'img'}
-                    image={dog8}
+                    image={chiara}
                     width={200}
                     height={200}
                     sx={{ objectFit: 'cover' }}
                   />
                   <CardContent>
                     <Typography
-                      children={'Dog 8'}
+                      children={'Chiara Marita Szolderits'}
                       color={'primary'}
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Why dogs are superior creatures'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={4}>
-              <Card>
-                <CardActionArea disableRipple>
-                  <CardMedia
-                    component={'img'}
-                    image={dog9}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Dog 9'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Why dogs are superior creatures'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={4}>
-              <Card>
-                <CardActionArea disableRipple>
-                  <CardMedia
-                    component={'img'}
-                    image={dog10}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Dog 10'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Why dogs are superior creatures'}
+                      children={'Mathematical Equation Solver'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
