@@ -322,7 +322,7 @@ export default function App() {
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Deception Detection'}
+                      children={'Deception Detection Using Brain Signals'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
