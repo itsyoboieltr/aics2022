@@ -226,7 +226,7 @@ export default function App() {
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Nina project title'}
+                      children={"Yao's protocol"}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
@@ -346,7 +346,7 @@ export default function App() {
                       sx={{ fontWeight: 'bold' }}
                     />
                     <Typography
-                      children={'Ebin project title'}
+                      children={'Sokoban solver'}
                       sx={{ fontWeight: 'lighter' }}
                     />
                   </CardContent>
