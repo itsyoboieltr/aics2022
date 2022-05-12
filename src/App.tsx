@@ -12,15 +12,15 @@ import {
   StepIconProps,
   stepConnectorClasses,
   Card,
-  CardActionArea,
   CardMedia,
-  CardContent,
-  Box,
+  Button,
 } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import TapasIcon from '@mui/icons-material/Tapas';
 import AvTimerIcon from '@mui/icons-material/AvTimer';
-import main from './assets/aics2022.webp';
+import background from './assets/aics2022.webp';
+import poster from './assets/aics2022-poster.pdf';
 import mehmet from './assets/mehmet.jpg';
 import nina from './assets/nina.png';
 import norbert from './assets/norbert.png';
@@ -35,63 +35,138 @@ const { augmentColor } = palette;
 const createColor = (mainColor: string) =>
   augmentColor({ color: { main: mainColor } });
 
+const team = [
+  {
+    name: 'Dimitra Brountsou',
+    project: 'RPA Bot Development',
+    time: '17:20 - 17:30',
+    image: dimitra,
+  },
+  {
+    name: 'Alvaro Sanchez',
+    project: 'Deception Detection Using Brain Signals',
+    time: '17:30 - 17:40',
+    image: alvaro,
+  },
+  {
+    name: 'Mehmet Daglioglu',
+    project: 'Super Resolution GANs',
+    time: '17:40 - 17:50',
+    image: mehmet,
+  },
+  {
+    name: 'Jakub Ciborowski',
+    project: 'Network IDS for IoT',
+    time: '17:50 - 18:00',
+    image: jakub,
+  },
+  {
+    name: 'Norbert Elter',
+    project: 'Digit Recognition',
+    time: '18:15 - 18:25',
+    image: norbert,
+  },
+  {
+    name: 'Nina Suette',
+    project: "Yao's protocol",
+    time: '18:25 - 18:35',
+    image: nina,
+  },
+  {
+    name: 'Chiara Marita Szolderits',
+    project: 'Mathematical Equation Solver',
+    time: '18:35 - 18:45',
+    image: chiara,
+  },
+  {
+    name: 'Ebin Sebastian',
+    project: 'Sokoban solver',
+    time: '18:45 - 18:55',
+    image: ebin,
+  },
+];
+
 export default function App() {
   const theme = createTheme({
     palette: {
       mode: 'dark',
       primary: createColor('#6a8bff'),
-      secondary: createColor('#8a2387'),
+      secondary: createColor('#a14f9f'),
+      info: createColor('#ff3cb7'),
     },
   });
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ position: 'relative', mb: -2, textAlign: 'center' }}>
-        <img
-          src={main}
-          width={'100%'}
-          height={300}
-          style={{
-            filter:
-              'saturate(80%) hue-rotate(40deg) brightness(60%) contrast(80%)',
-            objectFit: 'cover',
-            zIndex: -1,
-          }}
-        />
-        <Typography
-          variant={'h3'}
-          sx={{
-            width: '95%',
-            fontSize: 'clamp(2.5rem, 3vw, 3rem)',
-            textTransform: 'lowercase',
-            fontVariant: 'small-caps',
-            fontWeight: 'bolder',
-            position: 'absolute',
-            top: '33%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            backdropFilter: 'blur(2px) saturate(60%)',
-          }}
-          children={'AI meets CS'}
-        />
-        <Typography
-          variant={'h3'}
-          sx={{
-            width: '95%',
-            fontSize: 'clamp(2rem, 3vw, 3rem)',
-            textTransform: 'lowercase',
-            fontVariant: 'small-caps',
-            fontWeight: 'bolder',
-            position: 'absolute',
-            top: '55%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            backdropFilter: 'blur(2px) saturate(60%)',
-          }}
-          children={'Check out what our students are working on'}
-        />
-      </Box>
+      <img
+        src={background}
+        width={'100%'}
+        height={200}
+        draggable={false}
+        style={{
+          position: 'relative',
+          filter:
+            'saturate(80%) hue-rotate(40deg) brightness(60%) contrast(80%)',
+          objectFit: 'cover',
+          userSelect: 'none',
+          zIndex: -1,
+          marginBottom: -10,
+        }}
+      />
+      <Grid
+        container
+        alignItems={'center'}
+        justifyContent={'center'}
+        sx={{ position: 'absolute', top: 0, left: 0, textAlign: 'center' }}>
+        <Grid item xs={12} sx={{ mt: 1, mr: 1 }}>
+          <Typography
+            variant={'h3'}
+            sx={{
+              textAlign: 'right',
+              fontSize: 'clamp(0.7rem, 2vw, 1.2rem)',
+              textTransform: 'uppercase',
+              fontWeight: 'bolder',
+              letterSpacing: '0.15rem',
+              color: theme.palette.info.main,
+              userSelect: 'none',
+            }}
+            children={'June 17. 17:00 - 21:00'}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
+            variant={'h3'}
+            sx={{
+              fontSize: 'clamp(3.5rem, 9.5vw, 3.8rem)',
+              textTransform: 'lowercase',
+              fontVariant: 'small-caps',
+              fontWeight: 'bolder',
+              lineHeight: '0.8',
+              letterSpacing: '0.1rem',
+              textShadow: `0 0 7px ${theme.palette.primary.main}, 0 0 10px ${theme.palette.primary.main}, 0 0 21px ${theme.palette.primary.main}`,
+              userSelect: 'none',
+            }}>
+            Artificial <br /> Intelligence
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sx={{ mt: 1, mb: 1 }}>
+          <Typography
+            variant={'h3'}
+            sx={{
+              fontSize: 'clamp(1.4rem, 4vw, 3rem)',
+              textTransform: 'lowercase',
+              fontVariant: 'small-caps',
+              fontWeight: 'bolder',
+              letterSpacing: '0.4rem',
+              color: theme.palette.primary.main,
+              textShadow: `0 0 4px ${theme.palette.primary.main}`,
+              userSelect: 'none',
+            }}
+            children={'Meets Cybersecurity'}
+            noWrap
+          />
+        </Grid>
+      </Grid>
       <Grid
         container
         spacing={1}
@@ -117,7 +192,7 @@ export default function App() {
         </Grid>
         <Grid item xs={12} md={8}>
           <Typography
-            children={'Event details'}
+            children={'Schedule'}
             variant={'h3'}
             sx={{
               textTransform: 'lowercase',
@@ -127,16 +202,17 @@ export default function App() {
             color={'primary'}
           />
           <Typography children={'University of Klagenfurt'} sx={{ mt: 1 }} />
-          <Typography children={'2022.06.17, 17:00-21:00'} sx={{ mb: 3 }} />
+          <Typography children={'Building O, Event hall'} />
+          <Typography children={'2022. 06. 17, 17:00 - 21:00'} sx={{ mb: 3 }} />
           <Stepper
             alternativeLabel
-            activeStep={2}
+            activeStep={3}
             connector={<ColorlibConnector />}
             sx={{ mt: 1 }}>
-            <Step key={'Event starts'}>
+            <Step key={'Start'}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>
                 <Typography
-                  children={'Event starts'}
+                  children={'Start'}
                   variant={'inherit'}
                   sx={{ mt: -1, mb: -2.5 }}
                 />
@@ -152,13 +228,24 @@ export default function App() {
                   sx={{ mt: -1, mb: -2.5 }}
                 />
                 <br />
-                <Typography children={'18:00'} variant={'caption'} />
+                <Typography children={'17:20 - 19:00'} variant={'caption'} />
               </StepLabel>
             </Step>
-            <Step key={'Event ends'}>
+            <Step key={'Snacks & Networking'}>
               <StepLabel StepIconComponent={ColorlibStepIcon}>
                 <Typography
-                  children={'Event ends'}
+                  children={'Snacks & Networking'}
+                  variant={'inherit'}
+                  sx={{ mt: -1, mb: -2.5 }}
+                />
+                <br />
+                <Typography children={'19:00 - 21:00'} variant={'caption'} />
+              </StepLabel>
+            </Step>
+            <Step key={'End'}>
+              <StepLabel StepIconComponent={ColorlibStepIcon}>
+                <Typography
+                  children={'End'}
                   variant={'inherit'}
                   sx={{ mt: -1, mb: -2.5 }}
                 />
@@ -180,208 +267,58 @@ export default function App() {
               mb: 1,
             }}
           />
-          <Grid
-            container
-            spacing={1}
-            justifyContent={'center'}
-            alignItems={'center'}>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={mehmet}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Mehmet Daglioglu'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Super Resolution GANs'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={nina}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Nina Suette'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={"Yao's protocol"}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={norbert}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Norbert Elter'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Digit Recognition'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={jakub}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Jakub Ciborowski'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Network IDS for IoT'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={dimitra}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Dimitra Brountsou'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'RPA Bot Development'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={alvaro}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Alvaro Sanchez'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Deception Detection Using Brain Signals'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={ebin}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Ebin Sebastian'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Sokoban solver'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
-            <Grid item xs={6} md={3}>
-              <Card>
-                <CardActionArea disableRipple sx={{ cursor: 'default' }}>
-                  <CardMedia
-                    component={'img'}
-                    image={chiara}
-                    width={200}
-                    height={200}
-                    sx={{ objectFit: 'cover' }}
-                  />
-                  <CardContent>
-                    <Typography
-                      children={'Chiara Marita Szolderits'}
-                      color={'primary'}
-                      sx={{ fontWeight: 'bold' }}
-                    />
-                    <Typography
-                      children={'Mathematical Equation Solver'}
-                      sx={{ fontWeight: 'lighter' }}
-                    />
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Grid>
+          <Grid container spacing={1.5}>
+            {team.map((member) => (
+              <Grid item xs={6} md={3} key={member.name}>
+                <Card sx={{ height: '100%' }}>
+                  <Grid container direction={'column'} spacing={1}>
+                    <Grid item>
+                      <CardMedia
+                        component={'img'}
+                        draggable={false}
+                        image={member.image}
+                        height={200}
+                        sx={{ objectFit: 'cover', userSelect: 'none' }}
+                      />
+                    </Grid>
+                    <Grid item>
+                      <Typography
+                        children={member.name}
+                        color={'primary'}
+                        sx={{ fontWeight: 'bold' }}
+                      />
+                    </Grid>
+                    <Grid item sx={{ mb: 1.5, mx: 1 }}>
+                      <Typography
+                        children={member.project}
+                        sx={{ fontWeight: 'lighter' }}
+                      />
+                      <Typography
+                        children={member.time}
+                        sx={{ fontWeight: 'lighter' }}
+                      />
+                    </Grid>
+                  </Grid>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
+        </Grid>
+        <Grid item xs={12} md={8} sx={{ mb: -2 }}>
+          <Button
+            children={'Contact'}
+            size={'large'}
+            href={'mailto:aics2022@aau.at'}
+          />
+          <Button
+            children={'Poster'}
+            size={'large'}
+            onClick={() => window.open(poster)}
+          />
         </Grid>
         <Grid item xs={12} md={8} sx={{ mb: 3 }}>
           <Typography
-            children={'Come and see us on the'}
+            children={'Come and see us on'}
             variant={'h3'}
             sx={{
               textTransform: 'lowercase',
@@ -407,13 +344,12 @@ export default function App() {
 
 function ColorlibStepIcon(props: StepIconProps) {
   const { active, completed, className } = props;
-
   const icons: { [index: string]: React.ReactElement } = {
     1: <EventNoteIcon />,
     2: <CoPresentIcon />,
-    3: <AvTimerIcon />,
+    3: <TapasIcon />,
+    4: <AvTimerIcon />,
   };
-
   return (
     <ColorlibStepIconRoot
       ownerState={{ completed, active }}
