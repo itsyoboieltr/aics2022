@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build-and-deploy:
+  build-and-deploy-demo:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
@@ -13,7 +13,25 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          npm ci
+          npm i
+          VITE_BASE=/aics2022/ npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.3.0
+        with:
+          branch: demo
+          folder: dist
+    
+    build-and-deploy-dist:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install and Build 🔧
+        run: |
+          npm i
           npm run build
 
       - name: Deploy 🚀
