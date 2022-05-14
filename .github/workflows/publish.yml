@@ -21,8 +21,8 @@ jobs:
         with:
           branch: demo
           folder: dist
-    
-    build-and-deploy-dist:
+
+  build-and-deploy-dist:
     concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     steps:
