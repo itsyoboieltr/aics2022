@@ -14,6 +14,7 @@ import {
   Card,
   CardMedia,
   Button,
+  Link,
 } from '@mui/material';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import EventNoteIcon from '@mui/icons-material/EventNote';
@@ -29,6 +30,8 @@ import dimitra from './assets/dimitra.jpg';
 import alvaro from './assets/alvaro.jpg';
 import ebin from './assets/ebin.jpg';
 import chiara from './assets/chiara.jpg';
+import sensolligent from './assets/sensolligent-logo.png';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const { palette } = createTheme();
 const { augmentColor } = palette;
@@ -204,6 +207,13 @@ export default function App() {
           <Typography children={'University of Klagenfurt'} sx={{ mt: 1 }} />
           <Typography children={'Building O, Event hall'} />
           <Typography children={'2022. 06. 17, 17:00 - 21:00'} sx={{ mb: 3 }} />
+          <Button
+            sx={{ mt: -3 }}
+            children={'Livestream'}
+            size={'large'}
+            onClick={() => window.open(poster)}
+            endIcon={<FiberManualRecordIcon />}
+          />
           <Stepper
             alternativeLabel
             activeStep={3}
@@ -316,7 +326,7 @@ export default function App() {
             onClick={() => window.open(poster)}
           />
         </Grid>
-        <Grid item xs={12} md={8} sx={{ mb: 3 }}>
+        <Grid item xs={12} md={8} sx={{ mb: 1 }}>
           <Typography
             children={'Come and see us on'}
             variant={'h3'}
@@ -336,6 +346,101 @@ export default function App() {
             }}
             color={'primary'}
           />
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Button
+            children={'Sponsored by Sensolligent'}
+            sx={{ color: 'white', fontSize: 16 }}
+            size={'large'}
+            onClick={() => window.open('https://www.sensolligent.com/')}
+          />
+          <br />
+          <img src={sensolligent} width={160} draggable={false} />
+        </Grid>
+        <Grid item xs={12} md={8} sx={{ mb: 3 }}>
+          <Typography
+            children={'Contact information'}
+            variant={'h5'}
+            sx={{
+              textTransform: 'lowercase',
+              fontVariant: 'small-caps',
+              fontWeight: 'lighter',
+            }}
+          />
+          <Typography
+            children={'Prof. Dr. Wolfgang Faber'}
+            sx={{ fontWeight: 'lighter' }}
+          />
+          <Typography
+            children={
+              'Function: Member of the Working Group for Equal Opportunities, Head of the Institute'
+            }
+            sx={{ fontWeight: 'lighter' }}
+          />
+          <Typography sx={{ fontWeight: 'lighter' }}>
+            Email:{' '}
+            <Link
+              children={'Wolfgang.Faber@aau.at'}
+              href={'mailto: Wolfgang.Faber@aau.at'}
+              underline={'none'}
+              color={'white'}
+              sx={{
+                fontWeight: 'lighter',
+                display: 'inline',
+                cursor: 'pointer',
+                '&:hover': {
+                  color: theme.palette.primary.main,
+                  transition: theme.transitions.create('color', {
+                    duration: theme.transitions.duration.shortest,
+                  }),
+                },
+              }}
+            />
+          </Typography>
+          <Typography sx={{ fontWeight: 'lighter' }}>
+            Webpage:{' '}
+            <Typography
+              children={'https://www.wfaber.com/'}
+              onClick={() => window.open('https://www.wfaber.com/')}
+              sx={{
+                fontWeight: 'lighter',
+                display: 'inline',
+                cursor: 'pointer',
+                '&:hover': {
+                  color: theme.palette.primary.main,
+                  transition: theme.transitions.create('color', {
+                    duration: theme.transitions.duration.shortest,
+                  }),
+                },
+              }}
+            />
+          </Typography>
+          <Typography
+            children={
+              'Assignment: Institute for Artificial Intelligence and Cybersecurity'
+            }
+            sx={{ fontWeight: 'lighter' }}
+          />
+          <Typography sx={{ fontWeight: 'lighter' }}>
+            Telephone:{' '}
+            <Link
+              children={'+43 463 2700 3712'}
+              href={'tel:+4346327003712'}
+              underline={'none'}
+              color={'white'}
+              sx={{
+                fontWeight: 'lighter',
+                display: 'inline',
+                cursor: 'pointer',
+                '&:hover': {
+                  color: theme.palette.primary.main,
+                  transition: theme.transitions.create('color', {
+                    duration: theme.transitions.duration.shortest,
+                  }),
+                },
+              }}
+            />
+          </Typography>
         </Grid>
       </Grid>
     </ThemeProvider>
