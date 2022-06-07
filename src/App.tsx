@@ -211,7 +211,9 @@ export default function App() {
             sx={{ mt: -3 }}
             children={'Livestream'}
             size={'large'}
-            onClick={() => window.open(poster)}
+            onClick={() =>
+              window.open('https://classroom.aau.at/b/fab-sxt-sak-b1o')
+            }
             endIcon={<FiberManualRecordIcon />}
           />
           <Stepper
@@ -359,7 +361,7 @@ export default function App() {
         </Grid>
         <Grid item xs={12} md={8} sx={{ mb: 3 }}>
           <Typography
-            children={'Contact information'}
+            children={'Impressum'}
             variant={'h5'}
             sx={{
               textTransform: 'lowercase',
@@ -369,6 +371,12 @@ export default function App() {
           />
           <Typography
             children={'Prof. Dr. Wolfgang Faber'}
+            sx={{ fontWeight: 'lighter' }}
+          />
+          <Typography
+            children={
+              'Universitätsstraße 65-67, 9020 Klagenfurt am Wörthersee, Austria'
+            }
             sx={{ fontWeight: 'lighter' }}
           />
           <Typography
