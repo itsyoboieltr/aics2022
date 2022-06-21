@@ -212,8 +212,7 @@ export default function App() {
             children={'Recording of the Livestream'}
             size={'large'}
             onClick={() =>
-              window.open('https://bbb.aau.at/playback/presentation/2.3/b08840a02008883b37f3eb4f5687e9d241ec5ce1-1655472225060
-')
+              window.open('https://bbb.aau.at/playback/presentation/2.3/b08840a02008883b37f3eb4f5687e9d241ec5ce1-1655472225060')
             }
             endIcon={<FiberManualRecordIcon />}
           />
